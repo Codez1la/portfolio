@@ -6,41 +6,19 @@ export function setupZoomAnimation(scene, camera) {
     const startButton = document.getElementById("start-animation");
 
     startButton.addEventListener("click", () => {
+        startButton.classList.add("unclick");
         // Stop the rotation
         window.isRotating = false; //stop the rotation
 
-        if (scene) {
-            gsap.to(scene.rotation, { y: 0, duration: 0.5, ease: "power2.out" });
-        }
-
-        gsap.to(camera.position, {
-            x: 0,
-            y: 1,
-            z: 4,
-            duration: 1,
-            ease: "power2.out",
-            onComplete: () => {
-                gsap.to(camera.position, {
-                    x: 0,
-                    y: 0,
-                    z: 0.5,
-                    duration: 2,
-                    ease: "power2.out",
-                    onUpdate: () => {
-                        camera.lookAt(new THREE.Vector3(0, 0, 0));
-                    },
-                    onComplete: () => {
-                        showNewContent();
-                    },
-                });
-            },
-        });
+        showNewContent();
     });
 }
 
 
 function showNewContent() {
     console.log("Transitioning to new content...");
+    const startButton = document.getElementById("start-animation"); // im lazy
+    startButton.classList.remove("unclick");
 
     const canvasContainer = document.getElementById("canvas-container");
     const titleSection = document.getElementById("title-section");
@@ -90,40 +68,10 @@ function transitionToHome() {
         titleSection.style.opacity = 1;
         titleSection.style.transition = "opacity 0.5s";
         canvasContainer.style.display = "block";
-    }
-
-    restartInitialAnimation(); // Reset Three.js animation
-}
-
-
-function restartInitialAnimation() {
-    console.log("Restarting initial animation...");
-    const camera = window.camera; // Access global camera
-    const scene = window.scene;  // Access global scene
-    const renderer = window.renderer;
-
-    if (!scene || !camera || !renderer) {
-        console.error("Scene, camera, or renderer not found.");
-        return;
-    }
-
-    // Reset camera position
-    camera.position.set(0, 1, 2);
-    camera.lookAt(0, 0, 0);
-
-    // Reset scene rotation
-    scene.rotation.y = 0;
-
-    // Re-render the scene
-    renderer.render(scene, camera);
-
-    // Restart the animation loop
-    window.isRotating = true; // Ensure the scene rotation resumes
-}
+    }}
 
 document.getElementById("home-button").addEventListener("click", () => {
     transitionToHome();
-    restartInitialAnimation();
 });
 
 

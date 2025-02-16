@@ -76,7 +76,7 @@ header {
   position: absolute;
   top: 5%;
   color: #fff;
-  background: rgba(0, 0, 0, 0.103);
+  background: rgba(0, 0, 0, 0.632);
   backdrop-filter: blur(5px);
   -webkit-backdrop-filter: blur(5px);
   padding: 20px;
@@ -105,6 +105,10 @@ header {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(255, 255, 255, 0.6);
   border-color: rgba(255, 255, 255, 0.8);
+}
+
+.unclick{
+  pointer-events: none;
 }
 
 /* Fade-in Animation */
@@ -141,8 +145,8 @@ header {
 /* Header Container */
 #header-container {
   position: absolute;
-  top: 10%;
-  left: 0;
+  top: 25%;
+  right: 10cm;
   width: 100%;
   z-index: 5;
   display: flex;

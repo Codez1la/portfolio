@@ -4,11 +4,11 @@ export function loadModel(scene) {
     return new Promise((resolve, reject) => {
         const loader = new GLTFLoader();
         loader.load(
-            "/models/laptopmodelEXTRA1.glb",
+            "/models/modelweb.glb",
             (gltf) => {
                 const model = gltf.scene;
-                model.position.set(0, -0.5, 0);
-                model.scale.set(1, 1, 1);
+                model.position.set(1.5, -0.75, 0);
+                model.scale.set(.35, .35, .35);
 
                 model.traverse((node) => {
                     if (node.isMesh) {

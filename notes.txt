@@ -1,0 +1,2 @@
+bkg dark: 0x171717
+bkg light: 0xFFFDF0

@@ -4,7 +4,6 @@ import { certsContent, certLogic } from "./certs.js";
 import { contactContent, contactLogic } from "./contact.js";
 import { creditsContent, creditsLogic } from "./credits.js";
 import { educationContent, educationLogic } from "./education";
-import { hobbiesContent, hobbiesLogic } from "./hobbies.js";
 import { projectsContent, projectsLogic } from "./projects.js";
 
 // Map section IDs to their content and logic
@@ -13,7 +12,6 @@ const sections = {
     Education: { content: educationContent, logic: educationLogic },
     Certifications: { content: certsContent, logic: certLogic },
     Projects: { content: projectsContent, logic: projectsLogic },
-    Hobbies: { content: hobbiesContent, logic: hobbiesLogic },
     Connect: { content: contactContent, logic: contactLogic },
     Credits: { content: creditsContent, logic: creditsLogic },
     // Add other sections here...

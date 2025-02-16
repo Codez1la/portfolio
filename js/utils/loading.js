@@ -3,7 +3,7 @@ export function showLoadingScreen(loadingScreen, typingText) {
     loadingScreen.style.display = "flex";
 
     // Add the text "[CD]" dynamically
-    typingText.textContent = "[CD]";
+    typingText.textContent = "{CD}";
 }
 
 export function hideLoadingScreen(loadingScreen) {
